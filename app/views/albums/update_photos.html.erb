@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col justify-content-center">
+    <h1 style="text-align:center"> <%= @album.name %> Album Add Photos, Step 2 </h1>
+  </div>
+</div>
+<% @photos.each_slice(8) do |slice| %>
+  <div class="row justify-content-center">
+    <% slice.each do |photo| %>
+      <div class="col-md-1" >
+        <%= image_tag photo.photo_url(:thumb) unless photo.photo.file.nil? %>
+      </div> 
+    <% end %>
+  </div>
+<% end %>
+

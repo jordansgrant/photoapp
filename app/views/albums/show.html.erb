@@ -1,2 +1,17 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<div class="row">
+  <div class="col-md-6 justify-content-center">
+    <h1><%= @album.name %> Album</h1>
+  </div>
+  <div class="col-md-8 justify-content-center">
+    <%= "<p>#{album.description}</p>" unless album.description.empty? %>
+  </div>
+  <% @album.photos.each_slice(8) do |slice| %>
+    <% slice.each do |photo| %>
+      <div class="col" >
+        <%= image_tag photo.photo_url(:thumb) unless photo.photo.file.nil? %>
+      </div> 
+    <% end %>
+  <% end %>
+</div>
+
+
