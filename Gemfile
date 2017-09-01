@@ -12,8 +12,10 @@ gem 'rails', '~> 5.1.3'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 
-# Add user authentication via devise
-gem 'devise'
+#photo uploads and processing
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -45,6 +47,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
