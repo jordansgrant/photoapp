@@ -22,7 +22,6 @@ class PhotosController < ApplicationController
   private
     def photo_params
       p = params.require(:photo).permit(:photo, :name)
-      #p.merge PhotoUploader.get_metadata(params[:photo][:photo].path)
     end
  
 end
