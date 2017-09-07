@@ -11,10 +11,14 @@ gem 'rails', '~> 5.1.3'
 # Add bootstrap for css
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
+gem 'listjs-rails'
 
 #photo uploads and processing
-gem 'carrierwave', '~> 1.0'
-gem 'mini_magick'
+#gem 'carrierwave', '~> 1.0'
+#gem 'mini_magick'
+gem 'paperclip', "~> 5.0.0"
+gem 'paperclip-meta'
+gem 'exifr'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'

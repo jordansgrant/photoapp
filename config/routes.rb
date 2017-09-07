@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :albums, only: [:new, :show, :create]
+  resources :albums, only: [:new, :show, :create, :index]
   get '/albums/:id/update_photos', to: 'albums#update_photos', as: 'update_photos'
   post '/albums/:id/update_photos', to: 'albums#save_photos'
   

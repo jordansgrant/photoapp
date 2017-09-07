@@ -1,17 +1,25 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1 style="text-align: center"><%= @album.name %> Album</h1>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h4><%="#{@album.description}" unless @album.description.empty? %></h4>
+  </div>
+</div>
+</div>
 <div class="row">
-  <div class="col-md-6 justify-content-center">
-    <h1><%= @album.name %> Album</h1>
-  </div>
-  <div class="col-md-8 justify-content-center">
-    <%= "<p>#{album.description}</p>" unless album.description.empty? %>
-  </div>
-  <% @album.photos.each_slice(8) do |slice| %>
-    <% slice.each do |photo| %>
-      <div class="col" >
-        <%= image_tag photo.photo_url(:thumb) unless photo.photo.file.nil? %>
+  <div class="col-12">
+    <% @album.photos.each do |photo| %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" style="text-align: center; float:left">
+        <p class="thumb-name"> <%= photo.name %> </p>
+        <div class="thumb-box">
+          <%= image_tag photo.photo.url(:thumb), class: "thumb"  unless photo.photo.nil? %>
+        </div>
       </div> 
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 

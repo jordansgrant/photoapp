@@ -1,7 +1,11 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1 style="text-align: center"> <%= @photo.name %> </h1>
+  </div>
+</div>
 <div class="row">
-  <div class="col-md-6 justify-content-center">
-    <h1> <%= @photo.photo_identifier %> </h1>
-    <%= image_tag @photo.photo_url unless @photo.photo.file.nil? %>
-    <%= image_tag @photo.photo_url(:thumb) unless @photo.photo.file.nil? %>
+  <div class="col">
+    <%= image_tag @photo.photo.url unless @photo.photo.nil? %>
+    <%= image_tag @photo.photo.url(:thumb) unless @photo.photo.nil? %>
   </div>
 </div>

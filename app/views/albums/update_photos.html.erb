@@ -3,13 +3,33 @@
     <h1 style="text-align:center"> <%= @album.name %> Album Add Photos, Step 2 </h1>
   </div>
 </div>
-<% @photos.each_slice(8) do |slice| %>
+<div id="photos">
   <div class="row justify-content-center">
-    <% slice.each do |photo| %>
-      <div class="col-md-1" >
-        <%= image_tag photo.photo_url(:thumb) unless photo.photo.file.nil? %>
-      </div> 
-    <% end %>
+    <div class="input-group col-3 mb-3">
+      <input class="search form-control" placeholder="Name" />
+    </div>
   </div>
-<% end %>
+  <div class="row">
+    <div class="list col-12">
+      <% @photos.each do |photo| %>
+        <div data-id="<%= photo.id %>" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" style="text-align: center; float:left">
+          <p class="name thumb-name"> <%= photo.name %> </p>
+          <div class="thumb-box">
+            <input id="<%= photo.id %>" type="checkbox" class="thumb-check" 
+                       <%= (@album.photos.exists? photo.id) ? "checked" : "" %> />
+
+            <label class="mb-0" for="<%= photo.id %>"><%= image_tag photo.photo.url(:thumb), class: "thumb image" %></label>
+          </div>
+          <span style="display:none" class="date_taken" data-timestamp="<%= photo.date_taken %>"></span>
+        </div> 
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-group mt-3 justify-content-center">
+      <button id="submit" class="btn btn-primary">Submit</button>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    </div>
+  </div>
+</div>
 

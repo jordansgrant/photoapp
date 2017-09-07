@@ -29,7 +29,14 @@ class AlbumsController < ApplicationController
 
   def save_photos
     @album = Album.find(params[:id])
-    @album.photo_ids = params[:photos]
+    @album.photo_ids = JSON.parse(params[:photos]).map {|p_id| p_id.to_i}
+    if @album.save
+      flash[:success] = "#{@album.name} was updated successfully"
+      redirect_to album_url(@album)
+    else
+      flash[:error] = "Failed to update album"
+      render :update_photos
+    end
   end
   
   private

@@ -1,4 +1,8 @@
 <%= form_for(@photo) do |f| %>
-  <%= f.file_field :photo, class: 'form-control' %>
+  <div class="form-group" %>
+    <%= f.label :name, 'Photo Name' %>
+    <%= f.text_field :name, class:'form-control', required: true %>
+  </div>
+  <%= f.file_field :photo, class: 'form-control', required: true %>
   <%= f.submit "Upload", class: 'btn btn-primary' %>
 <% end %>
