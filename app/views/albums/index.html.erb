@@ -1,0 +1,18 @@
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-2 mt-2" >
+	<h1 style="text-align: center">Select An Album</h1>
+  </div>
+</div>
+<div class="row mb-4">
+  <div class="col-12">
+	<% @albums.each do |album| %>
+	  <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" style="text-align: center; float:left">
+		<p class="thumb-name"> <%= album.name %> </p>
+        <div class="thumb-box" onclick="window.location.href = &#39;<%= album_url(album) %>&#39;">
+          <% photo = album.photos.first %>
+          <%= image_tag photo.photo.url(:thumb), class: "thumb"  unless photo.photo.nil? %>
+		</div>
+	  </div>
+	<% end %>
+  </div>
+</div>

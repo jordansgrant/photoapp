@@ -1,4 +1,8 @@
 class AlbumsController < ApplicationController
+  def index
+    @albums = Album.order(:created_at)
+  end
+
   def new
     @album = Album.new
   end
